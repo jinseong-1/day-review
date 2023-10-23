@@ -1,0 +1,48 @@
+<!-- 1023_review_4.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1023review4</title>
+</head>
+<body>
+    <header>
+        <nav id="grandParents">
+            <ul id="parents">
+                <li id="one">첫째</li>
+                <li id="two">둘째</li>
+                <li id="three">막내</li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        // 자식요소 찾기
+        // 기준 : #parents
+        let parents = document.getElementById("parents");
+        let every = parents.childNodes;
+        console.log(every);
+        let first = parents.firstChild;
+        console.log(first);
+        let last = parents.lastChild;
+        console.log(last);
+
+        // 부모요소 찾기
+        // 기준 : li#one
+        let one = document.getElementById("one");
+        parents = one.parentNode;
+        let grandParents=parents.parentNode;
+        grandParents=one.parentNode.parentNode;
+        console.log(grandParents);
+
+        // 형제요소 찾기
+        // 기준 : li#two
+        let two = document.querySelector("#two");
+        let next = two.nextSibling
+        console.log(next);
+        let prev = two.previousSibling;
+        console.log(prev);
+    </script>
+</body>
+</html>

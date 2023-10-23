@@ -1,0 +1,46 @@
+<!-- 1023_review_1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1023review_1</title>
+    <script>
+        let id = document.getElementById("selectedId");
+        console.log(id);
+    </script>
+</head>
+<body>
+    <input type="text" id="selectedID" class="tagClass" value="1" tabindex="1">
+    <input type="text" id="selectedID" class="tagClass" value="2" tabindex="2">
+    <input type="text" id="selectedID" class="tagClass" value="3" tabindex="3">
+    <input type="text" id="selectedID" class="tagClass" value="4" tabindex="4">
+    <input type="text" id="selectedID" class="tagClass" value="5" tabindex="5">
+    <input type="button" value="button" class="tagclass" id="selectedId" onclick="alert('click!!')">
+    
+    <script>
+        id = document.getElementById("selectedId");
+        console.log(id);
+        id.value = "갑";
+        document.write("<hr/>")
+        document.write(`getElementyById : ${id.value}<br/>`);
+
+        let selector = document.querySelector(".tagClass");
+        selector = document.querySelector("input");
+        selector = document.querySelector("#selectedId");
+    document.write(`querySelector : ${selector.value}<br/>`);
+
+    // tag name으로 선택된 모든 태그요소를 Array 형식으로 반환
+        let tagArray = document.getElementsByTagName("input");
+        console.log(tagArray);
+        for(let i = 0; i < tagArray.length;i++){
+            document.write(`${i}번째 tag : ${tagArray[i].value}<br/>`);
+        }
+
+    // class 속성의 값으로 검색된 모든 태그요소를 배열로 반환
+        let classArray = document.getElementsByClassName("tagClass");
+        console.log(classArray);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- 1023_review_3.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1023review_3</title>
+</head>
+<body>
+    <label for="lightblue">
+        <input type="radio" name="r1" id="lightblue">
+        lightblue
+    </label>
+    
+    <label for="lightgreen">
+        <input type="radio" name="r1" id="lightgreen">
+        lightgreen
+    </label>
+    
+    <label for="pink">
+        <input type="radio" name="r1" id="pink">
+        pink
+    </label>
+    
+    <label for="red">
+        <input type="radio" name="r1" id="red">
+        red
+    </label>
+    <script>
+        let radios = document.getElementsByName("r1");
+        console.log(radios);
+
+        let lables = document.getElementsByTagName("lables");
+        for(let i = 0; i < lables.length; i++){
+            console.log(radios[i]);
+            console.log(lables[i]);
+            console.log(lables[i].innerText);
+        }
+        for(let item of radios){
+            console.log(item);
+            item.onclick = function(){
+                let color = item.parentNode.innerText;
+                console.log(color);
+                document.body.style.backgroundColor = color;
+            }
+        }
+/*
+        for(let i in radios){
+            radios[i].onchange = function(){
+            // radios[i].onclick = function(){
+            document.body.style.backgroundColor = lables[i].innerText;
+            }
+        }
+*/
+    </script>
+</body>
+</html>
