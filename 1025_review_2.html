@@ -1,0 +1,82 @@
+<!-- 1025_review_2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1025review2</title>
+    <style>
+        .target{
+            border: 1px solid black;
+            padding:20px;
+            margin:10px auto;
+            color:brown
+        }
+    </style>
+</head>
+<body>
+    <button onclick="addClass()";>class 속성 추가</button>
+    <button onclick="removeClass()";>class 속성 삭제</button>
+    <button onclick="removeFirst()";>첫번째 요소 삭제</button>
+    <button onclick="removeLast()";>마지막 요소 삭제</button>
+    <div id="target">
+        <p id="p1" onclick="rl(this);" class="p1 pClass">1번째 단락</p>
+        <p id="p2" onclick="rl(this);" class="p1 pClass">2번째 단락</p>
+        <p id="p3" onclick="rl(this);" class="p1 pClass">3번째 단락</p>
+        <p id="p4" onclick="rl(this);" class="p1 pClass">4번째 단락</p>
+        <p id="p5" onclick="rl(this);" class="p1 pClass">5번째 단락</p>
+    </div>
+
+    <script>
+        // 첫번째 단락에 속성 추가
+        function addClass(){
+            let target = document.getElementById("target");
+            let childrens = target.childNodes;
+            console.log(childrens);
+            childrens = target.children;
+            console.log(childrens);
+            for(let item of childrens){
+                console.log(item.className);
+                console.log(item.classList);
+                item.classList.add('target');
+            }
+        }
+
+        // target class 속성 삭제와 생성 반복
+        function removeClass(){
+            let elP = document.querySelectorAll("#target > p");
+            for(let item of elP){
+                item.classList.toggle('target');
+            }
+        }
+
+        // target 요소의 자식요소중 첫번째 요소 삭제
+        function removeFirst(){
+            let parent = document.getElementById("target");
+            let child = parent.firstChild;
+            console.log(child);
+            child = parent.firstElementChild;
+            console.log(child);
+            if(child != null){
+                parent.removeChild(child);
+            }
+        }
+
+        // target 요소에서 자식요소들 중 마지막 요소 삭제
+        function removeLast(){
+            let parent = document.querySelector("#target");
+            let lastChild = parent.lastElementChild;
+            if(lastChild != null){
+                parent.removeChild(lastChild);
+            }
+        }
+
+        // click event 발생 요소 삭제
+        function rl(elem){
+            console.log(elem);
+            elem.remove();
+        }
+        
+    </script>
+</body>
+</html>
