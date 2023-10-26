@@ -1,0 +1,21 @@
+<!-- 1026_review_1.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>mouse event</title>
+    <script>
+        window.onload = function(){
+            document.body.onmousemove = function(event){
+                let position = "x :" +event.pageX;
+                position += ", y :" +event.pageY;
+                document.getElementById("pTag").innerHTML = position;
+            }
+        }
+    </script>
+</head>
+<body>
+    <p id="pTag"></p>
+    <div style="background-color:black;color:yellow;width:500px;height:600px;font-size:80px;">mouse area</div>
+</body>
+</html>
