@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <style>
+        *{
+            margin:0;
+        }
+        thead{
+            text-align:center;
+        }
+        .non{
+            text-align:right;
+            padding-right:30px;
+        }
+        td{
+            border:hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <td colspan="2"><h1>회원가입</h1></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="non">아이디</td>
+                <td><input type='text' id="id" autofocus></td>
+            </tr>
+            <tr>
+                <td class="non">비밀번호</td>
+                <td><input type='password' id="pw"></td>
+            </tr>
+            <tr>
+                <td class="non">비밀번호확인</td>
+                <td><input type='password' id="pwd"></td>
+            </tr>
+            <tr>
+                <td class="non">생년월일</td>
+                <td><input type='text' id="birth"></td>
+            </tr>
+            <tr>
+                <td class="non">이름</td>
+                <td><input type='text' id="name"></td>
+            </tr>
+            <tr>
+                <td class="non">전화번호</td>
+                <td><input type='text' id="ph"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <button id="submit" onclick="valiadateForm()">회원가입</button>
+                    <button id="submit" onclick="valiadateForm()">정보수정</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+            $("#submit").click(function(){
+                if($("#id").val().length==0){alert("아이디를 작성해주세요.");
+                $("#id").focus(); return false;}
+
+                if($("#pw").val().length==0){alert("비밀번호를 작성해주세요.");
+                $("#pw").focus(); return false;}
+
+                if($("#pwd").val().length==0){alert("비밀번호를 확인해주세요.");
+                $("#pwd").focus(); return false;}
+
+                if("#pw" !== "#pwd"){
+                    alert('비밀번호가 일치하지않습니다.')
+                }
+
+                if($("#birth").val().length==0){alert("생일을 작성해주세요.");
+                $("#birth").focus(); return false;}
+
+                if($("#name").val().length==0){alert("이름을 작성해주세요.");
+                $("#name").focus(); return false;}
+
+                if($("#ph").val().length==0){alert("핸드폰 번호를 작성해주세요.");
+                $("#ph").focus(); return false;}
+
+                
+                })
+    </script>
+</body>
+</html>

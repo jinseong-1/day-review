@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>table</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th colspan="2">회원정보수정</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>아이디</td>
+                <td><input type='text' value="userid" disabled></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type='text' readonly></td>
+            </tr>
+            <tr>
+                <td>비밀번호 확인</td>
+                <td><input type='text' readonly></td>
+            </tr>
+            <tr>
+                <td rowspan="3">주소</td>
+                <td><input type='text' placeholder="우편번호"></td>
+            </tr>
+            <tr>
+                <td><input type='text' placeholder="주소"></td>
+            </tr>
+            <tr>
+                <td><input type='text' placeholder="상세주소"></td>
+            </tr>
+            <tr>
+                <td>생년월일</td>
+                <td><input type='text'></td>
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td><input type='text'></td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td><input type='number' id="number" value="010" disabled>-<input type='number' id="number" value="1234" disabled>-<input type='number' id="number" value="5678" disabled></td>
+                <style>
+                    #number{
+                        width:45px;
+                    }
+                </style>
+            </tr>
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"><button>수정완료</button> <button>회원가입</button></td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
