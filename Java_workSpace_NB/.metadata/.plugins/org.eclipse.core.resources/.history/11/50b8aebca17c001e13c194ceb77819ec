@@ -1,0 +1,8 @@
+package sec03;
+
+public class e03ByteOperation {
+	public static void main(String[] args) {
+		byte result1 = 10+20;
+		System.out.println(result1);
+	}
+}
