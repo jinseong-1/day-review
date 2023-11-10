@@ -175,3 +175,37 @@ public static void main(String[] args) {
  - 객체(인스턴스) 자신의 참조(번지)를 가지고 있는 키워드
  - 객체 내부에서 인스턴스 멤버임을 명확히 하기 위해 this. 사용
  - 매개변수와 필드명이 동일할 때 인스턴스 필드임을 명확히 하기 위해 사용
+
+## 생성자
+ - new 연산자에 의해 호출되어 객체의 초기화 담당<br/>
+ `new 클래스();`
+
+### 기본생성자(Default Constructor)
+ - 모든 클래스는 생성자가 반드시 존재하며 하나 이상을 가질수 있음
+ - 생성자 선언을 생략하면 컴퍼일러가 같은 기본생성자 추가
+```
+public class Car{}
+```
+↓
+```
+public class Car{
+   public Car(){} // 자동추가
+}
+```
+
+#### 기본생성자 선언
+ - 디폴트 생성자 대신 개발자가 직접 선언
+ ```
+ 클래서(매개변수선언,...){
+   // 객체의 초기화 코드
+ }
+ ```
+ ```
+ public class Car{
+   // 생성자
+   Car(String model, String color, int maxSpeed){...}
+ }
+ ```
+ ```
+ Car myCar = new Car("k3","gray",250);
+ ```
