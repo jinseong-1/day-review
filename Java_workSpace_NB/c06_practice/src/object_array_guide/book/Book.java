@@ -1,5 +1,6 @@
 package object_array_guide.book;
 
+// Value Object
 public class Book {
 	
 	// 도서관리 번호
@@ -8,7 +9,6 @@ public class Book {
     String title;
 	// 도서 저자
 	String author;
-	
 	
 	public Book() {}
 

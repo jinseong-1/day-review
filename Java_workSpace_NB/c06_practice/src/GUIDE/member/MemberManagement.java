@@ -33,25 +33,101 @@ public class MemberManagement{
 	/*
 	 * 기능 관리 
 	 */
-	
+	int num = 1;
 	// 프로그램 실행
 	void isRun() {
+		while(isRun) {
+			System.out.println("===========================================================");
+			System.out.println("1.회원가입|2.로그인|3.회원목록|4.회원정보수정|5.회원탈퇴|6.프로그램 종료");
+			System.out.println("===========================================================");
+			System.out.println("메뉴 선택 > ");
+			
+			if(!sc.hasNextInt()) {
+				System.out.println("번호를 입력해주세요>");
+				sc.next();
+				continue;
+			}
+			selectNo = sc.nextInt();
+			switch(selectNo) {
+				case 1 : 
+					System.out.println("== 회원가입 == ");
+					join();
+					break;
+				case 2 : 
+					System.out.println("== 로그인 == ");
+					login();
+					break;
+				case 3 : 
+					System.out.println("== 회원목록 == ");
+					select();
+					break;
+				case 4 : 
+					System.out.println("== 회원정보수정 == ");
+					update();
+					break;
+				case 5 : 
+					System.out.println("== 회원탈퇴 == ");
+					delete();
+					break;
+				case 6 : 
+					System.out.println("== 종료 == ");
+					terminate();
+					break;
+				default :
+					System.out.println("선택할 수 없는 번호입니다.");
+			} // switch 종료
 		
-	}
+		} // while 종료
+	
+	} // run 종료
+	
 	
 	// 프로그램 종료
 	void terminate() {
-		
+		isRun = false;
 	}
 
 	// 회원 가입
 	void join() {
+		System.out.println("아이디를 입력해주세요 >");
+		String id = sc.next();
 		
-	}
+		System.out.println("비밀번호를 입력해주세요 >");
+		String pw = sc.next();
+		
+		System.out.println("비밀번호를 확인해주세요 >");
+		String pwd = sc.next();
+		
+		System.out.println("이름을 입력해주세요 > ");
+		String name = sc.next();
+		
+		if(!pw.equals(pwd)) {
+			System.out.println("비밀번호를 다시 입력해주세요.");
+			return;
+		}
+		for(int i =0;i < members.length;i++) {
+			if(members[i]==null) {
+				Member member = new Member(num++, name, id, pw);
+				members[i] =member;
+				System.out.println("회원가입 완료");
+				break;
+			}
+		}
+	} // join end
 	
 	// 로그인
 	void login() {
-		
+		System.out.println("== 로그인 ==");
+		for(int i = 0; i< members.length; i++) {
+			System.out.println("아이디를 입력해주세요.");
+			String uid = sc.next();
+			System.out.println("패스워드를 입력해주세요.");
+			String upw = sc.next();
+			if(members[i].equals(uid) && members[i].equals(upw)) {
+				System.out.println("정상적으로 로그인 되었습니다.");
+				System.out.printf("Members ");
+			}
+		}
 	}
 
 	// 회원목록 - 로그인한 회원이 관리자 일때만 노출 

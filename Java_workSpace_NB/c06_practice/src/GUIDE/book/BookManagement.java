@@ -55,22 +55,75 @@ public class BookManagement {
 	// 프로그램 종료
 	public void terminate() {
 		System.out.println("프로그램 종료");
+		isRun = false;
 	}
 
 	// 도서 등록
 	public void  registerBook() {
 		System.out.println("1. 도서등록");
-	}
+		System.out.println("등록할 책의 제목을 입력하세요 >");
+		String title = scanLine.nextLine();
+		System.out.println("등록할 책의 저자를 입력하세요 >");
+		String another = scanLine.nextLine();
+		
+		Book newbook = new Book(count++,title,another);
+		
+		for(int i = 0; i<books.length;i++) {
+			if(books[i]==null) {
+				books[i] = newbook;
+				System.out.println("등록완료");
+				break;
+			}
+		}
+	} // registerBook end
 	
 	// 도서 목록 출력
 	public void selectBook() {
 		System.out.println("2. 도서목록");
-	}
+		for(int i = 0; i<books.length;i++) {
+			if(books[i]!=null) {
+				String info = books[i].toString();
+				System.out.println(info);
+				
+			}
+		}
+	} // selectBook end
 
 	// 도서 정보 수정
 	public void updateBook() {
 		System.out.println("3. 도서수정");
-	}
+		System.out.println("수정할 책의 도서관관리번호를 입력하세요 > ");
+		int num = scanLine.nextInt();
+			Book book = findBook(num);
+			// Book.toString();
+			String info = book.toString();
+			System.out.println(info);
+			System.out.println("================");
+			System.out.println("1.제목 수정|2.저자 수정|3.수정완료");
+				switch(num) {
+					case 1:
+						System.out.println("제목 수정");
+						System.out.println("제목입력 >");
+						String title = scanLine.nextLine();
+						book.title = title;
+						System.out.println("제목 수정 완료");
+						break;
+					case 2 :
+						System.out.println("저자 수정");
+						System.out.println("저자 입력 > ");
+						String author = scanLine.nextLine();
+						book.author = author;
+						break;
+					case 3 :
+						System.out.println("수정완료");
+						break;
+					default :
+						System.out.println("잘못된 값입니다.");
+				} // switch end
+				
+				
+			
+	} // updateBook end
 	
 	// 도서 목록에서 책 정보 삭제
 	public void deleteBook() {
@@ -84,6 +137,11 @@ public class BookManagement {
 	
 	// 도서관리번호로 책 정보 찾기
 	public Book findBook(int num) {
+		for(int i=0;i<books.length;i++) {
+			if(books[i].num==num) {
+				return books[i];
+			}
+		}
 		return null;
 	}
 	
