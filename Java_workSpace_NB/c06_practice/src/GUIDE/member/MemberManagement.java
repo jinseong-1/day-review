@@ -89,22 +89,30 @@ public class MemberManagement{
 
 	// 회원 가입
 	void join() {
-		System.out.println("아이디를 입력해주세요 >");
+		System.out.print("아이디를 입력해주세요 >");
 		String id = sc.next();
 		
-		System.out.println("비밀번호를 입력해주세요 >");
-		String pw = sc.next();
-		
-		System.out.println("비밀번호를 확인해주세요 >");
-		String pwd = sc.next();
-		
-		System.out.println("이름을 입력해주세요 > ");
-		String name = sc.next();
-		
-		if(!pw.equals(pwd)) {
-			System.out.println("비밀번호를 다시 입력해주세요.");
+		if(!memberIdCheck(id)) {
+			System.out.print("중복아이디 사용불가");
 			return;
 		}
+		
+		System.out.print("비밀번호를 입력해주세요 >");
+		String pw = sc.next();
+		
+		System.out.print("비밀번호를 확인해주세요 >");
+		String pwd = sc.next();
+		
+		if(!pw.equals(pwd)) {
+			System.out.print("비밀번호를 다시 입력해주세요.");
+			return;
+		}
+		
+		System.out.print("이름을 입력해주세요 > ");
+		String name = sc.next();
+		
+		
+		
 		for(int i =0;i < members.length;i++) {
 			if(members[i]==null) {
 				Member member = new Member(num++, name, id, pw);
@@ -118,14 +126,15 @@ public class MemberManagement{
 	// 로그인
 	void login() {
 		System.out.println("== 로그인 ==");
-		for(int i = 0; i< members.length; i++) {
 			System.out.println("아이디를 입력해주세요.");
 			String uid = sc.next();
 			System.out.println("패스워드를 입력해주세요.");
 			String upw = sc.next();
-			if(members[i].equals(uid) && members[i].equals(upw)) {
+			for(int i = 0; i< members.length; i++) {
+			if(members[i]!=null && members[i].mId.equals(uid) && members[i].mPw.equals(upw)) {
 				System.out.println("정상적으로 로그인 되었습니다.");
-				System.out.printf("Members ");
+				loginMember = members[i];
+			
 			}
 		}
 	}
