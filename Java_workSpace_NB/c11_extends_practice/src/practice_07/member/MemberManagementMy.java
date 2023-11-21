@@ -2,7 +2,7 @@ package practice_07.member;
 
 import java.util.Scanner;
 
-public class MemberManagementMe{
+public class MemberManagementMy{
 	
 	// 사용자 입력
 	private Scanner sc = new Scanner(System.in);
@@ -23,7 +23,7 @@ public class MemberManagementMe{
 	private int selectNo;
 	
 	// 프로그램 실행용 생성자
-	public MemberManagementMe() {
+	public MemberManagementMy() {
 		// 관리자 계정을 99인덱스에 저장
 		members[members.length-1] = master;
 	}
@@ -166,7 +166,8 @@ public class MemberManagementMe{
 			System.out.println("내 정보 수정 -----");
 			System.out.println("비밀번호를 한번 더 입력해주세요 >");
 			String pw = sc.next();
-			if(loginMember.getmPw()==pw) {
+
+			if(loginMember.equals(loginMember)) {
 				System.out.println("수정할 이름을 입력해주세요 >");
 				loginMember.setmName(sc.next());
 				System.out.println("내 정보 수정 완료");
@@ -182,12 +183,25 @@ public class MemberManagementMe{
 
 	private void delete() {
 		
-	}
+		if(loginMember == null||loginMember == master) {
+			System.out.println("기능을 사용할 수 없습니다.");
+			return;
+		}
+		
+		System.out.println("정말로 삭제하시겠습니까? y/n");
+		String yn = sc.next();
+		if(yn.equals("y")||yn.equals("Y")||yn.equals("ㅛ")) {
+			deleteMember();
+		}else {
+			System.out.println("회원탈퇴가 취소되었습니다.");
+		}
+		
+	} //end delete
 	
 	// 회원 정보 삭제
 	private void deleteMember() {
 		for(int i=0; i<members.length; i++) {
-			if(members[i].equals(loginMember)) {
+			if(members[i]!=null && members[i].equals(loginMember)) {
 				members[i] = null;
 				loginMember = null;
 				System.out.println("회원탈퇴 완료");
@@ -198,6 +212,11 @@ public class MemberManagementMe{
 	
 	// 사용자 아이디 중복 체크
 	private boolean memberIdCheck(String mId) {
+		for(Member m : members) {
+			if(m != null && m.getmId().equals(mId)) {
+				return false;
+			}
+		}
 		return true;
 	}
 	
@@ -210,4 +229,9 @@ public class MemberManagementMe{
 		}
 		return null;
 	}
+	
+	public static void main(String[] args) {
+		new MemberManagementMy().isRun();
+	}
+	
 }
