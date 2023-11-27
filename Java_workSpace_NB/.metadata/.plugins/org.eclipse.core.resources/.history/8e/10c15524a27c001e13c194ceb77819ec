@@ -1,7 +1,0 @@
-package sec03;
-
-public class e04LongOperation {
-	public static void main(String[] args) {
-		
-	}
-}

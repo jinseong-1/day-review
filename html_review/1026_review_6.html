@@ -1,0 +1,37 @@
+<!-- 1026_review_6.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1026review6</title>
+    <script>
+        let interval;
+
+        function changeColor(){
+            interval = window.setInterval(function(){
+                let elem = document.querySelector('#target');
+                let c = elem.style.color;
+                 //elem.style.color = (c=="red")? "blue" : "red";
+        
+                if(c == 'red'){
+                    elem.style.color = 'blue';
+                }else{
+                    elem.style.color = 'red';
+                }
+
+        
+            },500);
+        }
+        function stopTextColor(){
+            window.clearInterval(interval);
+        }
+    </script>
+</head>
+<body onload="changeColor();">
+    <div id="target">
+        <p>change color!!</p>
+    </div>
+    <button onclick="stopTextColor();">멈춰!</button>
+</body>
+</html>

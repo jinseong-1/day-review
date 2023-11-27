@@ -1,0 +1,57 @@
+<!-- 1026_review_4.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1026review4</title>
+</head>
+<body>
+    <button onclick="location.href='https://google.com';">google href 이동</button>
+    <button onclick="location.replace('https://www.naver.com')">NAVER replace 이동</button>
+    <p>
+        replace로 이동시 기록이 남지않아 뒤로가기가 비활성화되니 <b><u>주의</u></b>
+        replace는 결제사이트에서 유용하게 사용할수 있음
+    </p>
+    <hr/>
+    <button id="move">내부 페이지로 이동</button>
+    <script>
+        document.getElementById("move").onclick = function(){
+            location.href='1026_review_1.html';
+        };
+
+        // console에 대하여
+        window.console.log("출력");
+        let a = "Hi"
+        let b = 20231026.2056
+        let c = true;
+        console.log(a+b+c);
+        console.log(a, b, c);
+
+        // pattern
+        console.log("%s는 문자열, %f는 수치형", a,b);
+        console.log("%s는 문자열, %d는 자연수", a,b);
+        console.warn("denger");
+        console.error("error!!");
+
+        console.clear();
+
+        // console을 내기까지 소요된 시간
+        console.time("타이머 1");
+        let sum = 0;
+        for(let i = 0; i<=1000000; i++){
+            if(i % 2 == 0){
+                sum += i;
+            }
+        }
+        console.timeEnd("타이머 1")
+
+        console.time("타이머 2");
+        sum=0
+        for(let i = 2; i<=1000000; i+=2){
+            sum += i;
+        }
+        console.timeEnd("타이머 2");
+    </script>
+</body>
+</html>
