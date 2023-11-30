@@ -3,3 +3,4 @@
 9/18 ~ 10/31 HTML CSS Javascript JQeury<br/>
 10/18 ~ 11/22 linux(every Wednesday)<br/>
 11/2~ JAVA(Very very important)<br/>
+11/29~ MYSQL (in Linux)<br/>
