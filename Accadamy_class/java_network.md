@@ -35,7 +35,9 @@
 ### UDP(User Datagram Protocol)
 - 비연결 지향적 프로토콜
     - 우편과 비슷한 방식
+- 통신 선로가 고정적이지 않음
 - 속도는 빠르지만 데이터의 안정성을 보장받지못함
+- `DatagramPacket`을 이용하여 `DatagramSocket`으로 수신하지만 연결이 되어있지않아도 수신함. 그래서 수신이 되고있는지 아닌지 확인 불가능
 
 ## URL(Uniform Resource Locator) class
 - 인터넷상의 파일이나 데이터베이스같은 자원에 대한 주소를 지정하는 방법
