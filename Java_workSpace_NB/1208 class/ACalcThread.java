@@ -2,8 +2,7 @@ package t02_priority_name;
 
 public class ACalcThread extends Thread{
 	
-	
-	public ACalcTread(String name) {
+	public ACalcThread(String name) {
 		super(name);
 	}
 	

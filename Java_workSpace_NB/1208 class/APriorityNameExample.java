@@ -19,7 +19,7 @@ public class APriorityNameExample {
 		
 		System.out.println("----------------------");
 		for(int i = 0; i<=10; i++) {
-			Thread calc = new ACalcThread("CaleThread-"+i);
+			Thread calc = new CalcThread("CaleThread-"+i);
 			if(i ==7) {
 				calc.setPriority(Thread.MAX_PRIORITY);
 			}
