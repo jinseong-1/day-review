@@ -25,6 +25,7 @@ SELECT * FROM usertbl
 WHERE height>=180 and height<=185;
 SELECT * FROM usertbl 
 WHERE height BETWEEN 180 and 185;
+
 -- IN() 이산적인 값(Discreate)을 가진 문자열 조회
 SELECT * FROM usertbl 
 WHERE addr='서울' or addr='전남' or addr='경남';
