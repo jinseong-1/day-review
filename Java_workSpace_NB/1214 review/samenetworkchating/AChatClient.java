@@ -11,7 +11,7 @@ import java.net.Socket;
 
 public class AChatClient {
 	
-	public static final String IP ="192.168.0.9";
+	public static final String IP ="172.30.1.67";
 	public static final int PORT = 5003;
 	
 	// server 와 연결된 socket
@@ -24,7 +24,7 @@ public class AChatClient {
 	BufferedReader abr;
 	
 	// console 에서 출력할 메세지 입력받을 스트림
-	BufferedReader reader;
+	BufferedReader areader;
 	
 	// console 반복문 탈출용 flag
 	boolean isRun = true;
@@ -50,8 +50,8 @@ public class AChatClient {
 		
 		// 1. console 에서 문자열 입력받을 스트림
 		InputStream im = System.in;
-		InputStreamReader reader = new InputStreamReader(im);
-		this.reader = new BufferedReader(reader);
+		InputStreamReader areader = new InputStreamReader(im);
+		this.areader = new BufferedReader(areader);
 		
 		// 2. server 에서 출력된 내용을 읽어들일 입력 스트림
 		InputStream sis = server.getInputStream();
@@ -70,14 +70,15 @@ public class AChatClient {
 		while(true) {
 			String sendDate;
 			// console 에서 사용자가 서버에 전달할 메세지를 입력받음
-			sendDate = this.reader.readLine();
+			sendDate = this.areader.readLine();
+			// 메세지 입력
 			apw.println(sendDate);
 		}
 	}
 	
+	// 메세지 수신
 	public void receive() {
 		Thread a = new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				while(true) {
@@ -94,11 +95,11 @@ public class AChatClient {
 				}	// end while
 				System.out.println("스레드 종료");
 			} // end run
-			
 		}); // end thread
 		a.start();
 	}
 	
+	// server 자원 해제
 	public void stopClient() {
 		if(server != null && !server.isClosed()) {
 			try {
