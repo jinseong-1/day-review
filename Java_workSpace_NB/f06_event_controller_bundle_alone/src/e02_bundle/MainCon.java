@@ -1,6 +1,7 @@
 package e02_bundle;
 
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -25,11 +26,23 @@ public class MainCon extends Application {
 	// 국가코드, 국가/언어코드		
 			System.out.printf("Country Code : %s, code %s %n", locale.getDisplayCountry(), locale.toString());
 		}
+		System.out.println("====================");
+		Locale locale = Locale.getDefault();
+		System.out.println(locale);
+		Locale localeJP = new Locale("ja","JP");		// 앞엔 국가코드, 뒤엔 언어(?) - 일본
+		System.out.println(localeJP);
+		Locale localeCN = new Locale("zh","CN");		// 앞엔 국가코드, 뒤엔 언어(?) - 중국
+		System.out.println(localeCN);
 		
 		
+		ResourceBundle abundle = ResourceBundle.getBundle("prop.s", new Locale("zh","CN"));
+		
+		Locale.setDefault(localeCN);
+		
+		abundle = ResourceBundle.getBundle("prop.s");
 		
 		try {
-			HBox call = FXMLLoader.load(getClass().getResource("Root.fxml"));
+			HBox call = FXMLLoader.load(getClass().getResource("Root.fxml"),abundle);
 			primaryStage.setScene(new Scene(call));
 			primaryStage.show();
 		} catch (Exception e) {

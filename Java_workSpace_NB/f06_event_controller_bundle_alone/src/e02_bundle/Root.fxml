@@ -6,7 +6,7 @@
 
 <HBox
 fx:controller="e02_bundle.RootController"
-alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="btnAccept" text="accept" />
       <Button fx:id="btnReload" text="reload" />
