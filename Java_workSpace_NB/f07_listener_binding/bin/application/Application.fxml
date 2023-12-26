@@ -7,12 +7,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane 
-prefHeight="660.0" prefWidth="350.0" 
-xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
-fx:controller="application.ApplicationController">
+<BorderPane prefHeight="660.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ApplicationController">
    <center>
-      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" smooth="false" BorderPane.alignment="CENTER">
          <image>
             <Image url="@../images/image1.jpg" />
          </image>

@@ -47,6 +47,7 @@ public class ApplicationController implements Initializable{
 			System.out.println(i);
 			double d = newValue.doubleValue();
 			System.out.println(d);		// 바뀌는 슬라이드에 따라 출력되는 타입 변경
+			setImageWidth(d);			// 이미지 바꾸는 클레스 호출
 		});
 		
 		toggle.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -57,16 +58,16 @@ public class ApplicationController implements Initializable{
 					Boolean newNumber) {
 				System.out.println(newNumber);		// 버튼 클릭시 true, false
 				
-				String path = "images/image1.jpg";
+				String path = "/images/image1.jpg";
 				if(newNumber) {
-					path = "images/image2.jpg";
+					path = "/images/image2.jpg";
 				}
 				File file = new File(path);
 				System.out.println(file.getAbsolutePath());
 				URL url = getClass().getResource(path);
 				System.out.println(url);
 				
-				Image image = new Image("file :/"+file.getAbsolutePath());
+				Image image = new Image(url.toString());
 				img.setImage(image);
 			}
 			
