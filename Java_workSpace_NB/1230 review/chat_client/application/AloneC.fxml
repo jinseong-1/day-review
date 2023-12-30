@@ -47,7 +47,7 @@ fx:controller="application.AloneCController">
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
                <children>
-                  <TextField fx:id="txtIp" promptText="10.100.205.231" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="txtIp" promptText="192.168.0.9" HBox.hgrow="ALWAYS" />
                   <TextField fx:id="txtPort" prefWidth="100.0" promptText="PORT 번호" text="5001" />
                   <TextField fx:id="txtNick" prefWidth="100.0" promptText="NickName" />
                   <Button fx:id="btnConn" mnemonicParsing="false" text="START" />

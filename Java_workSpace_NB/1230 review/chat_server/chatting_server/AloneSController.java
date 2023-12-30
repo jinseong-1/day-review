@@ -55,7 +55,7 @@ public class AloneSController implements Initializable{
 		String port = txtPort.getText().trim();
 		for(char c : port.toCharArray()) {
 			if(c < 48 || c > 57) {
-				displayText.appendText("사용할 수 없는 PORT 번호입니다");
+				displayText.appendText("사용할 수 없는 PORT 번호입니다. \n");
 				return;
 			}
 		}

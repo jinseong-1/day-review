@@ -12,6 +12,9 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -98,12 +101,74 @@ public class AloneCController implements Initializable{
 				
 				send(0, nickName);
 			}catch (IOException e1) {
-				e1.printStackTrace();
+				txtDisplay.appendText("[서버 연결 안됨. IP와 PORT를 확인해주세요");
+				stopClient();
 			}
-			
+			receive();
 			
 		}); // end btnConn
+		
+		
+		btnSend.setOnAction(e->{
+			String text = txtInput.getText().trim();
+			if(text.equals("")) {
+				displaytext("메세지를 먼저 입력해주세요.");
+				txtInput.requestFocus();
+				return;
+			}
+			send(1, text);
+		}); // btnSend
+		
+	} // end initialize
+	
+	public void receive() {
+		Thread t = new Thread(()->{
+			while(true) {
+				try {
+					String receiveData = bfr.readLine();
+					if(receiveData == null) {
+						break;
+					}
+					
+					String[] datas = receiveData.split("\\|");
+					String code = datas[0];
+					String text = datas[1];
+					if(code.equals("0")) {
+						String[] names = text.split(",");
+						ObservableList<String> nameList = FXCollections.observableArrayList(names);
+						
+						Platform.runLater(()->{
+							listView.setItems(nameList);
+						});
+					}else if(code.equals("1")) {
+						displaytext(text);
+					}
+					
+				} catch (IOException e) {
+					break;
+				}
+			}
+			stopClient();
+		});
+		t.setDaemon(true);
+		t.start();
 	}
+
+	public void stopClient() {
+		displaytext("[서버와 연결 종료]");
+		if(server != null && !server.isClosed()) {
+			try {
+				server.close();
+			} catch (IOException e) {}
+		}
+		
+	} // end stopClient
+
+	public void displaytext(String string) {
+		Platform.runLater(()->{
+			txtDisplay.appendText(string+"\n");
+		});		
+	} // end displaytext
 
 	public void send(int i, String nick) {
 		priter.println(i+"|"+nick);

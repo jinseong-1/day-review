@@ -21,7 +21,7 @@ fx:controller="chatting_server.AloneSController">
       <HBox alignment="CENTER" prefHeight="40.0" prefWidth="0.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="txtPort" prefHeight="22.0" prefWidth="330.0" text="5001" />
-            <Button fx:id="btnStartStop" mnemonicParsing="false" prefHeight="22.0" prefWidth="54.0" text="Start" textAlignment="CENTER">
+            <Button fx:id="btnStartStop" mnemonicParsing="false" prefHeight="22.0" prefWidth="54.0" text="_Start" textAlignment="CENTER">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
