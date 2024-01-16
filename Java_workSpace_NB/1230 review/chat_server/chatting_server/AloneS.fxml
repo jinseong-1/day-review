@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane 
+prefHeight="380.0" prefWidth="400.0" 
+style="-fx-background-color: skyblue;" 
+xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
+fx:controller="chatting_server.AloneSController">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="0.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtPort" prefHeight="22.0" prefWidth="330.0" text="5001" />
+            <Button fx:id="btnStartStop" mnemonicParsing="false" prefHeight="22.0" prefWidth="54.0" text="_Start" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="접속자 명단" />
+            <ListView fx:id="txtList" prefHeight="244.0" prefWidth="95.0">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </ListView>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="상태" VBox.vgrow="NEVER" />
+            <TextArea fx:id="displayText" prefHeight="250.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <Label text="CATTING SERVER" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>

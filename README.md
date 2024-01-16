@@ -5,3 +5,4 @@
 11/2~12/29 JAVA(Very very important)<br/>
 11/29~12/13 MYSQL (in Linux)<br/>
 12/29~2024.01/15 team project<br/>
+01/16 ~ Spring class<br/>
